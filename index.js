@@ -88,10 +88,17 @@ class Car {
     this.tank = this.tank + gallons;
   }
   drive(distance){
-    
+    this.odometer = this.odometer + distance;
+    this.tank = this.tank - this.milesPerGallon * .25;
+  }
+  toString(fuel){
+    return `I ran out of ${fuel} at ${this.drive} miles!" x being ${this.odometer}`
   }
 }
 const carOne = new Car("Taurus", 25);
+
+carOne.fill(10);
+carOne.drive(5);
 /*
   TASK 3
     - Write a Lambdasian class.
@@ -105,8 +112,21 @@ const carOne = new Car("Taurus", 25);
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(attributes){
+    this.name = attributes.name,
+    this.age = attributes.age,
+    this.location = attributes.location;
+  }
+  speak(){
+     return `Hello my name is ${this.name}, I am from ${this.location}`;
 }
+}
+ const bigCode = new Lambdasian({
+     name: 'Ada',
+     age: '25',
+     location: 'Canada',
+   });
+console.log(bigCode.speak());
 
 /*
   TASK 4
