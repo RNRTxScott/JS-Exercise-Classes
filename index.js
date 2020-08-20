@@ -41,9 +41,28 @@ class Airplane {
 */
 
 class Person {
-
+  constructor(attrib){
+    this.name = attrib.name;
+    this.age = attrib.age;
+    this.stomach = [];
+  }
+  eat(edible){
+    if (this.stomach.length < 10){
+      this.stomach.push(edible);
+  }
 }
-
+  poop(){
+    this.stomach = [];
+  }
+  toString(){
+    return `${this.name}, ${this.age}`;
+  }
+}
+const personOne = new Person({
+  name: 'Neo',
+  age: 20,
+});
+personOne.toString();
 /*
   TASK 2
     - Write a Car class whose constructor initializes `model` and `milesPerGallon` from arguments.
@@ -59,9 +78,20 @@ class Person {
 */
 
 class Car {
-
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+    this.tank = this.tank + gallons;
+  }
+  drive(distance){
+    
+  }
 }
-
+const carOne = new Car("Taurus", 25);
 /*
   TASK 3
     - Write a Lambdasian class.
