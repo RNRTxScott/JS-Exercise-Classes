@@ -154,9 +154,9 @@ class Instructor extends Lambdasian {
   }
 }
 const britHemming = new Instructor({
-  name: 'Ada',
+      name: 'Brit',
      age: '25',
-     location: 'Canada',
+     location: 'Texas',
      specialty: 'redux',
      favLanguage: 'JavaScript, Python, Elm etc.',
      catchPhrase: 'Dont forget the homies',
@@ -176,10 +176,33 @@ const britHemming = new Instructor({
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student {
-
+class Student extends Lambdasian {
+  constructor(attributes){
+    super(attributes);
+    this.previousBackground = attributes.previousBackground,
+    this.className = attributes.className,
+    this.favSubjects = attributes.favSubjects;
+  }
+listSubjects(){
+  return `Loving ${this.favSubjects}`;
+}
+PRAssignment(student, subject){
+return `${student.name} has submitted a PR for ${subject}`;
+}
+sprintChallenge(student, subject){
+  return `${student.name} has begun sprint challenge on ${subject}`;
+}
 }
 
+const michelleTL = new Student({
+      name: 'Michelle',
+     age: '23',
+     location: 'Chicago',
+     previousBackground: 'Restaraunt',
+     className: 'WEB14PT',
+     favSubjects: ['HTML', 'CSS', 'JS'],
+});
+console.log(michelleTL.PRAssignment('dontKNow'));
 /*
   TASK 6
     - Write a ProjectManager class extending Instructor.
@@ -193,8 +216,18 @@ class Student {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(attributes){
+    super(attributes);
+    this.gradClassName = attributes.gradClassName,
+    this.favInstructor = attributes.favInstructor;
+  }
+  standUp(channel){
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+  debugsCode(student, subject){
+    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+  }
 }
 
 /*
