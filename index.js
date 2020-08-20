@@ -41,9 +41,9 @@ class Airplane {
 */
 
 class Person {
-  constructor(attrib){
-    this.name = attrib.name;
-    this.age = attrib.age;
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
     this.stomach = [];
   }
   eat(edible){
@@ -58,10 +58,7 @@ class Person {
     return `${this.name}, ${this.age}`;
   }
 }
-const personOne = new Person({
-  name: 'Neo',
-  age: 20,
-});
+const personOne = new Person('Neo', '20');
 personOne.toString();
 /*
   TASK 2
@@ -142,10 +139,28 @@ console.log(bigCode.speak());
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor {
-
+class Instructor extends Lambdasian {
+  constructor(attributes){
+    super(attributes);
+    this.specialty = attributes.specialty,
+    this.favLanguage = attributes.favLanguage,
+    this.catchPhrase = attributes.catchPhrase;
+  }
+  demo(subject){
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student,subject){
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
 }
-
+const britHemming = new Instructor({
+  name: 'Ada',
+     age: '25',
+     location: 'Canada',
+     specialty: 'redux',
+     favLanguage: 'JavaScript, Python, Elm etc.',
+     catchPhrase: 'Dont forget the homies',
+});
 /*
   TASK 5
     - Write a Student class extending Lambdasian.
